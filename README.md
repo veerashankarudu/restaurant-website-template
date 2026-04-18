@@ -1,6 +1,162 @@
-# Restaurant Website Template
+# 🍽️ Professional Restaurant Website Template
 
-A professional, modern restaurant website template with WhatsApp integration designed for freelancers approaching restaurants with limited online presence.
+A modern, feature-rich restaurant website template built with React, TypeScript, and Tailwind CSS. Perfect for restaurants, cafes, and food businesses looking for a professional online presence.
+
+![Restaurant Website](https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=400&fit=crop&crop=center)
+
+## ✨ Features
+
+### 🍽️ **Advanced Menu System**
+- **31+ Menu Items** across 6 categories (Appetizers, Mains, Breads, Combos, Desserts, Beverages)
+- **Smart Filtering** - Veg/Non-Veg options with real-time counts
+- **Dietary Indicators** - Clear vegetarian, spicy, and popular badges
+- **Value Combos** - Special meal packages for families and groups
+
+### 🎯 **Chef's Special**
+- **Daily Featured Dish** with special pricing
+- **Dynamic Pricing** - Show original vs. discounted prices
+- **Time-Limited Offers** - Creates urgency for customers
+- **Direct WhatsApp Ordering** - One-click special orders
+
+### 🖼️ **Visual Gallery**
+- **15+ High-Quality Images** across 4 categories
+- **Category Filtering** - Food, Interior, Exterior, Events
+- **Lightbox Preview** - Professional image viewing experience
+- **Optimized Loading** - Fast, responsive image display
+
+### 📱 **WhatsApp Integration**
+- **Direct Ordering** - Every menu item has custom WhatsApp message
+- **Quick Contact** - Instant customer support via WhatsApp
+- **Custom Requests** - Special dietary needs and custom orders
+- **Mobile-Optimized** - Perfect for mobile food ordering
+
+### ⭐ **Customer Reviews**
+- **8 Customer Testimonials** with ratings and photos
+- **Social Proof** - Build trust with authentic reviews
+- **Avatar Display** - Personal touch with customer photos
+
+### 🎨 **Modern Design**
+- **Responsive Layout** - Perfect on all devices
+- **Smooth Animations** - Professional hover effects and transitions
+- **Clean Typography** - Easy-to-read fonts and spacing
+- **Color-Coded UI** - Intuitive visual organization
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 16+ 
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/veerashankarudu/restaurant-website-template.git
+   cd restaurant-website-template
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open in browser**
+   ```
+   http://localhost:3000
+   ```
+
+## 📝 Customization
+
+### 🏪 Restaurant Information
+Edit `src/config/restaurantConfig.ts` to customize:
+- Restaurant name, description, and contact info
+- Business hours and location
+- Social media links
+- WhatsApp number for orders
+
+### 🍽️ Menu Items
+Add/edit menu items in `restaurantConfig.ts`:
+```typescript
+{
+  id: "new-item",
+  name: "Item Name", 
+  description: "Item description",
+  price: 299,
+  category: "mains",
+  image: "image-url",
+  isVegetarian: true,
+  isSpicy: false,
+  whatsappMessage: "Custom WhatsApp message"
+}
+```
+
+### 🎨 Styling
+- **Colors**: Update `tailwind.config.js` and `restaurantConfig.ts`
+- **Fonts**: Modify font family in config files
+- **Images**: Replace gallery images with your restaurant photos
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React 18, TypeScript
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Animations**: Framer Motion
+- **Build Tool**: Vite
+- **Routing**: React Router DOM
+
+## 📱 Mobile Features
+
+- **Responsive Design** - Optimized for all screen sizes
+- **Touch-Friendly** - Large buttons and easy navigation  
+- **WhatsApp Deep Links** - Direct mobile app integration
+- **Fast Loading** - Optimized images and code splitting
+
+## 🔧 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 📞 Contact
+
+**Veera Shankar**
+- GitHub: [@veerashankarudu](https://github.com/veerashankarudu)
+
+## 🙏 Acknowledgments
+
+- Images from [Unsplash](https://unsplash.com)
+- Icons from [Lucide](https://lucide.dev)
+- Styling with [Tailwind CSS](https://tailwindcss.com)
+
+---
+
+⭐ **Star this repository if you found it helpful!**
+
+🍽️ **Perfect for restaurants, cafes, food trucks, and catering businesses**
+
+🚀 **Ready to deploy on Vercel, Netlify, or any hosting platform**
+
+---
+
+*Built with ❤️ for the food industry*
 
 ## 🌟 Features
 
