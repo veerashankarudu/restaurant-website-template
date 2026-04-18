@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Save, Plus, Trash2, Settings, Menu as MenuIcon, Image, MapPin, LogOut, User } from 'lucide-react'
+import { Save, Plus, Trash2, Settings, Menu as MenuIcon, Image, MapPin, LogOut } from 'lucide-react'
 import { useRestaurant } from '../../context/RestaurantContext'
 import { authService } from '../../services/authService'
 import AdminLogin from './AdminLogin'
@@ -64,10 +64,17 @@ const RestaurantAdmin: React.FC = () => {
         address: config.info.address.street + ', ' + config.info.address.city + ', ' + config.info.address.state,
         phone: config.info.phone,
         email: config.info.email,
-        hours: config.info.hours,
+        hours: JSON.stringify(config.info.hours),
         menuItems: config.menu.flatMap(category => category.items),
         gallery: config.gallery,
-        chefSpecial: config.chefSpecial || {
+        chefSpecial: config.chefSpecial ? {
+          name: config.chefSpecial.name,
+          description: config.chefSpecial.description,
+          price: config.chefSpecial.specialPrice || 0,
+          originalPrice: config.chefSpecial.originalPrice || 0,
+          specialPrice: config.chefSpecial.specialPrice || 0,
+          image: config.chefSpecial.image || ''
+        } : {
           name: '',
           description: '',
           price: 0,

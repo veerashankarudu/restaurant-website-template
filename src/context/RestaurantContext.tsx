@@ -5,6 +5,7 @@ import type { RestaurantConfig } from '../types/restaurant'
 interface RestaurantContextType {
   config: RestaurantConfig
   updateConfig: (newConfig: Partial<RestaurantConfig>) => void
+  updateRestaurantData: (newData: any) => Promise<void>
   refreshConfig: () => void
 }
 
@@ -20,13 +21,28 @@ const mergeConfigs = (defaultConfig: RestaurantConfig, adminData?: any): Restaur
 
   return {
     ...defaultConfig,
-    name: adminData.restaurantName || defaultConfig.name,
-    description: adminData.description || defaultConfig.description,
-    address: adminData.address || defaultConfig.address,
-    phone: adminData.phone || defaultConfig.phone,
-    email: adminData.email || defaultConfig.email,
-    hours: adminData.hours || defaultConfig.hours,
-    menuItems: adminData.menuItems || defaultConfig.menuItems,
+    info: {
+      ...defaultConfig.info,
+      name: adminData.restaurantName || defaultConfig.info.name,
+      description: adminData.description || defaultConfig.info.description,
+      phone: adminData.phone || defaultConfig.info.phone,
+      email: adminData.email || defaultConfig.info.email,
+      hours: typeof adminData.hours === 'string' ? JSON.parse(adminData.hours) : adminData.hours || defaultConfig.info.hours,
+      address: {
+        ...defaultConfig.info.address,
+        street: adminData.address?.split(',')[0]?.trim() || defaultConfig.info.address.street,
+        city: adminData.address?.split(',')[1]?.trim() || defaultConfig.info.address.city,
+        state: adminData.address?.split(',')[2]?.trim() || defaultConfig.info.address.state
+      }
+    },
+    menu: adminData.menuItems ? [
+      {
+        id: 'updated-menu',
+        name: 'Updated Menu',
+        description: 'Updated menu items',
+        items: adminData.menuItems
+      }
+    ] : defaultConfig.menu,
     gallery: adminData.gallery || defaultConfig.gallery,
     chefSpecial: adminData.chefSpecial || defaultConfig.chefSpecial
   }
@@ -59,6 +75,18 @@ export const RestaurantProvider: React.FC<RestaurantProviderProps> = ({ children
     localStorage.setItem('restaurant-admin-data', JSON.stringify(updatedConfig))
   }
 
+  // Function for admin panel updates
+  const updateRestaurantData = async (newData: any): Promise<void> => {
+    try {
+      const mergedConfig = mergeConfigs(restaurantConfig, newData)
+      setConfig(mergedConfig)
+      localStorage.setItem('restaurant-admin-data', JSON.stringify(newData))
+    } catch (error) {
+      console.error('Error updating restaurant data:', error)
+      throw error
+    }
+  }
+
   // Function to refresh configuration (useful after admin changes)
   const refreshConfig = () => {
     loadConfig()
@@ -72,6 +100,7 @@ export const RestaurantProvider: React.FC<RestaurantProviderProps> = ({ children
   const value = {
     config,
     updateConfig,
+    updateRestaurantData,
     refreshConfig
   }
 

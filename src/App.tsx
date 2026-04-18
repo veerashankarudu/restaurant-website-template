@@ -8,7 +8,7 @@ import Reviews from './components/Reviews/Reviews'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
 import WhatsAppFloat from './components/WhatsApp/WhatsAppFloat'
-import RestaurantAdmin from './components/Admin/RestaurantAdmin'
+import AdminPage from './pages/AdminPage'
 import ResetPassword from './components/Admin/ResetPassword'
 import { RestaurantProvider } from './context/RestaurantContext'
 
@@ -19,7 +19,7 @@ function App() {
         <div className="min-h-screen bg-gray-50">
           <Routes>
             {/* Admin Routes */}
-            <Route path="/admin" element={<RestaurantAdmin />} />
+            <Route path="/admin" element={<AdminPage />} />
             <Route path="/admin/reset-password" element={<ResetPassword />} />
             
             {/* Public Routes */}

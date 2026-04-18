@@ -55,21 +55,6 @@ const Menu: React.FC = () => {
 
   const filteredItems = getFilteredItems()
 
-  // Function to get item counts for dietary filters
-  const getItemCount = (filter: 'all' | 'vegetarian' | 'non-vegetarian') => {
-    const allItems = getItemsForCategory(selectedCategory)
-    
-    if (filter === 'all') {
-      return allItems.length
-    } else if (filter === 'vegetarian') {
-      return allItems.filter((item: MenuItem) => item.isVegetarian).length
-    } else if (filter === 'non-vegetarian') {
-      return allItems.filter((item: MenuItem) => !item.isVegetarian).length
-    }
-    
-    return 0
-  }
-
   return (
     <section id="menu" className="section-padding bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -184,7 +169,7 @@ const Menu: React.FC = () => {
                           {item.name.toUpperCase()}
                         </h4>
                         <div className="flex items-center space-x-1">
-                          {item.isVeg ? (
+                          {item.isVegetarian ? (
                             <div className="w-3 h-3 border-2 border-green-500 flex items-center justify-center">
                               <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
                             </div>
