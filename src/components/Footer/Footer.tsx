@@ -191,6 +191,14 @@ const Footer: React.FC = () => {
             <button className="hover:text-white transition-colors duration-300">
               Cookie Policy
             </button>
+            {/* Discrete admin link */}
+            <a 
+              href="/admin" 
+              className="text-gray-600 hover:text-gray-400 transition-colors duration-300 opacity-50 text-xs"
+              title="Restaurant Admin"
+            >
+              Admin
+            </a>
           </div>
           
           <div className="text-gray-400 text-sm">
