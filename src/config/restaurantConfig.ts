@@ -116,6 +116,18 @@ export const restaurantConfig: RestaurantConfig = {
           isVegetarian: false,
           isSpicy: true,
           whatsappMessage: "I'd like to order Fish Tikka (₹380). What type of fish do you use?"
+        },
+        {
+          id: "test-item",
+          name: "TEST - Sample Appetizer",
+          description: "This is a sample test item added for testing purposes only.",
+          price: 99,
+          category: "appetizers",
+          image: "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=800&h=600&fit=crop&crop=center",
+          isVegetarian: true,
+          isSpicy: false,
+          isPopular: false,
+          whatsappMessage: "I'd like to order the Sample Appetizer (₹99). Is it available?"
         }
       ]
     },
